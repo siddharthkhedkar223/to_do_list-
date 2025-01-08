@@ -1,12 +1,12 @@
 // tasks.test.js
-const { Task, TodoManager } = require('./tasks');
+const { Task, TodoManager } = require('../src/tasks');
 
 describe('TodoManager', () => {
     let todoManager;
 
-    beforeEach(() => {
+    beforeEach(() => { 
         todoManager = new TodoManager();
-    });
+    }); 
 
     describe('addTask', () => {
         it('should add a new task with valid inputs', () => {
