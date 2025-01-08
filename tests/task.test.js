@@ -10,6 +10,13 @@ describe('TodoManager', () => {
 
     describe('addTask', () => {
         it('should add a new task with valid inputs', () => {
+            /**
+             * Adds a new task to the todo manager.
+             *
+             * @param {string} taskName - The name of the task to be added.
+             * @param {string} dueDate - The due date of the task in YYYY-MM-DD format.
+             * @returns {Object} The newly added task object.
+             */
             const task = todoManager.addTask('Test task', '2024-01-10');
             expect(task.description).toBe('Test task');
             expect(task.completed).toBe(false);
@@ -22,12 +29,21 @@ describe('TodoManager', () => {
     });
 
     describe('markAsComplete', () => {
+        /**
+         * Marks a task as complete.
+         *
+         * @param {number} taskId - The ID of the task to be marked as complete.
+         * @returns {Object} The updated task object with completed status.
+         */
         it('should mark a task as complete', () => {
             const task = todoManager.addTask('Test task', '2024-01-10');
             const completedTask = todoManager.markAsComplete(task.id);
             expect(completedTask.completed).toBe(true);
         });
 
+        /**
+         * Throws an error when trying to mark a non-existent task as complete.
+         */
         it('should throw error for non-existent task', () => {
             expect(() => todoManager.markAsComplete(999)).toThrow();
         });
@@ -36,6 +52,12 @@ describe('TodoManager', () => {
     describe('listTasks', () => {
         beforeEach(() => {
             todoManager.addTask('Task 1', '2024-01-10');
+            /**
+             * Represents the second task added to the todo manager.
+             * @type {Object}
+             * @property {string} title - The title of the task.
+             * @property {string} dueDate - The due date of the task in YYYY-MM-DD format.
+             */
             const task2 = todoManager.addTask('Task 2', '2024-01-11');
             todoManager.markAsComplete(task2.id);
         });
@@ -59,6 +81,13 @@ describe('TodoManager', () => {
 
     describe('deleteTask', () => {
         it('should delete an existing task', () => {
+            /**
+             * Adds a task to the todo manager.
+             *
+             * @param {string} description - The description of the task.
+             * @param {string} dueDate - The due date of the task in YYYY-MM-DD format.
+             * @returns {Object} The newly added task object.
+             */
             const task = todoManager.addTask('Test task', '2024-01-10');
             todoManager.deleteTask(task.id);
             expect(todoManager.listTasks()).toHaveLength(0);

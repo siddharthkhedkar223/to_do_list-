@@ -19,6 +19,14 @@ app.post('/tasks', (req, res) => {
 
 app.patch('/tasks/:id/complete', (req, res) => {
     try {
+        /**
+         * Marks a task as complete based on the provided task ID.
+         *
+         * @param {Object} req - The request object.
+         * @param {Object} req.params - The parameters from the request.
+         * @param {string} req.params.id - The ID of the task to mark as complete.
+         * @returns {Object} The updated task object after marking it as complete.
+         */
         const task = todoManager.markAsComplete(parseInt(req.params.id));
         res.json(task);
     } catch (error) {
