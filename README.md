@@ -57,7 +57,7 @@ npm test
 GitHub Copilot was used for:
 - Generating error handling patterns with appropriate HTTP status codes
 - Creating comprehensive Jest test cases including edge cases
-- Suggesting error message formats
+- Suggesting error message formats and adding JSDoc comments 
 
 ## Project Structure
 
@@ -65,7 +65,7 @@ GitHub Copilot was used for:
 src/
 ├── tasks.js      # Core task management logic
 ├── server.js     # Express server setup
-└── tests/
+tests/
     └── tasks.test.js
 ```
 
